@@ -1233,6 +1233,68 @@ Let $M$ be a smooth $n$-dimensional manifold with atlas $(U_\alpha,\phi_\alpha)$
 
 \subsection{Normal bundles of embeddings}
 
+In this subsection we define the normal bundle of an embedding and compare the definition to the obvious construction in the case of submanifolds of $\R^n$. We briefly recall the concepts of submanifolds, immersions, and embeddings.
+
+\begin{defn}
+Let $M'$ be a smooth $n$-dimensional manifold and $M \subset M'$ a subset. $M$ is called an \emph{$m$-dimensional submanifold} of $M'$ if, for every point $p \in N$, there exists a chart $(U,\phi)$ around $p$ such that $\phi(U \cap N)$ is an open subset of $\R^m$ and
+\[
+\phi(U \cap N)= \phi(U) \cap (\R^{m}\times \{0\}) \subset \R^{m} \times \R^{n-m}.
+\]
+If $M \subset M'$ is closed, we call $M$ a \emph{closed submanifold} of $M'$.
+\end{defn}
+
+\begin{defn}
+Let $f:M\to M'$ be a smooth map of smooth manifolds. For a point $p \in M$ we call $f$ an \emph{immersion} in $p$ if there exists a neighbrhood $U$ of $p$ such that $f|_U$ induces an isomorphism of $U$ onto a submanifold of $M'$. If $f$ is injective and induces an isomorphism onto a (closed) submanifold of $M'$, we call $f$ a \emph{(closed) embedding}.
+\end{defn}
+
+\begin{example}
+There exist injective immersions which are not embeddings. Consider for instance a curve in $\R^2$ as shown in Figure \ref{immersion not embedding}.
+\begin{figure}[H] \label{immersion not embedding}
+	\begin{center}
+\begin{tikzpicture}
+\draw (9,0)--(3,0);
+\draw[out=180,in=-90] (3,0)to(2,1);
+\draw[out=90,in=180] (2,1)to(3,2);
+\draw[->,out=0,in=100] (3,2)to(4,0.01);
+\end{tikzpicture}
+\end{center}\caption{An injective immersion which is not an embedding}
+\end{figure}
+\end{example}
+
+If $f:M \to M'$ is an embedding, we recall that there is a natural morphism of vector bundles
+\[
+Tf: f_\ast TM \to TM'.
+\]
+Since $f$ is an embedding, the sequence
+\[
+0 \longrightarrow TM \overset{Tf}{\longrightarrow} TM'
+\]
+is exact. This suggests the following definition of a the normal bundle.
+
+\begin{defn}
+Let $M$ and $M'$ be smooth manifolds of dimension $m$ and $n\ge m$, respectively. Let $f:M\to M'$ be a smooth embedding. We define the \emph{normal bundle} $N(f)$ of $f$ to be the $n-m$ dimensional real vector bundle given by
+\[
+N(f)=TM' / \text{Im}(Tf).
+\]
+\end{defn}
+In the special case that $M \subset M'$ is a submanifold, the inclusion map $\iota:M\to M'$ is an embedding and we write
+\[
+NM=N(\iota)=TM'/\text{Im}(\iota)=TM'/TM.
+\]
+If $M\subset \R^n$ is an $m$-dimensional submanifold, we can define intuitively
+\[
+N^gM=\{ (p,w) \in M\times \R^n : w \perp v \text{ for all $(p,v)\in T^g M$} \},
+\]
+where $T^gM$ was definied in the previous subsection. Then an isomorphism of vector bundles is given by the map
+\[
+\Psi: \Gamma_{N^g M}(U) \to NM(U),
+\]
+where $\Psi$ is defined as follows: Let $s:U \to N^gM|_U$. By definition of a submanifold, there exists an open set $\tilde{U} \subset \R^n$ such that $U=\tilde{U} \cap \R^m$ and we can easily construct some $\tilde{s}:\tilde{U} \to \R^n$ with $\tilde s|_{U\times \{0 \}} \cong s$. This induces a map
+\[
+\Psi:\Gamma_{N^g M}(U) \overset{s \mapsto \tilde s}{\longrightarrow} \Gamma_{T^g \R^n}(\tilde U) \overset{\Phi}{\longrightarrow} T\R^n(\tilde{U}) \overset{\pi}{\longrightarrow} NM(\tilde U)
+\]
+where $\Phi$ is the isomorphism defined in the previous subsection and $\pi :T\R^n \to NM$ the natural projection. The analogous construction holds if we replace $\R^n$ by a Riemannian manifold.
+
 \subsection{The cotangent bundle and differential forms}
 
 Let $M$ be a smooth manifold. Then the cotangent bundle $T^*M$ is the linear dual of the tangent bundle of $M$, that is, $T^*M = \Hom_M(TM,\R \times M)$.
